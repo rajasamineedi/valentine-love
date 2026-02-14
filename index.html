@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infinity Love ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:Poppins,sans-serif;
+  background:url("beach.jpg") center/cover no-repeat fixed;
+}
+
+/* COUNTDOWN */
+#countdownScreen{
+  position:fixed;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  background:black;
+  z-index:999;
+}
+
+.countGlow{
+  position:absolute;
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,80,140,0.5),transparent 70%);
+  filter:blur(40px);
+  animation:glowPulse 2s infinite;
+}
+
+.countNumber{
+  font-family:"Great Vibes",cursive;
+  font-size:140px;
+  color:#ff7aa8;
+  text-shadow:0 0 20px #ff7aa8,0 0 40px #ff4d88,0 0 80px #ff1f6b;
+  animation:countBeat 1s infinite;
+}
+
+.countText{
+  margin-top:25px;
+  color:white;
+  font-size:22px;
+  letter-spacing:2px;
+}
+
+@keyframes glowPulse{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.2);}
+}
+@keyframes countBeat{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.15);}
+}
+
+/* FLASH */
+.flash{
+  position:fixed;
+  inset:0;
+  background:white;
+  animation:flashAnim .8s forwards;
+}
+@keyframes flashAnim{
+  0%{opacity:1;}
+  100%{opacity:0;}
+}
+
+/* PROPOSAL */
+#proposal{
+  backdrop-filter:blur(18px);
+  background:rgba(255,255,255,0.25);
+  padding:35px 50px;
+  border-radius:28px;
+  text-align:center;
+  box-shadow:0 0 40px rgba(255,150,180,0.35);
+  display:none;
+  z-index:10;
+}
+
+.question{
+  font-size:28px;
+  color:white;
+  text-shadow:0 0 10px rgba(0,0,0,0.5);
+}
+
+.buttons{
+  margin-top:25px;
+  display:flex;
+  gap:20px;
+  justify-content:center;
+}
+
+button{
+  border:none;
+  border-radius:28px;
+  padding:12px 30px;
+  font-size:18px;
+  cursor:pointer;
+}
+
+#yesBtn{
+  background:#ff7aa8;
+  color:white;
+  box-shadow:0 0 15px #ff7aa8;
+}
+
+#noBtn{
+  background:white;
+  color:#ff7aa8;
+}
+
+#noText{
+  margin-top:15px;
+  font-size:20px;
+  color:white;
+  text-shadow:0 0 10px black;
+}
+
+/* YES SCENE */
+#yesScene{
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  background:url("bg.jpg") center/cover no-repeat fixed;
+}
+
+/* INFINITY AURA */
+.infinity-aura{
+  position:absolute;
+  width:420px;
+  height:420px;
+  top:45%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,120,200,0.25),rgba(255,80,160,0.18),transparent 70%);
+  filter:blur(30px);
+  animation:auraPulse 6s infinite;
+}
+
+@keyframes auraPulse{
+  0%{transform:translate(-50%,-50%) scale(.9);}
+  50%{transform:translate(-50%,-50%) scale(1.1);}
+  100%{transform:translate(-50%,-50%) scale(.9);}
+}
+
+/* HEART */
+.bigHeart{
+  font-size:95px;
+  filter:drop-shadow(0 0 25px #ff7aa8);
+  animation:universeBeat 2.2s infinite;
+}
+@keyframes universeBeat{
+  0%{transform:scale(1);}
+  15%{transform:scale(1.06);}
+  30%{transform:scale(1);}
+  45%{transform:scale(1.12);}
+  60%{transform:scale(1);}
+}
+
+/* TEXT */
+.valentine-text{
+  margin-top:10px;
+  text-align:center;
+}
+
+.line1{
+  font-family:"Great Vibes",cursive;
+  font-size:64px;
+  background:linear-gradient(180deg,#ffd6e7,#ff7aa8,#ffffff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 12px rgba(255,120,170,.9),0 0 28px rgba(255,80,120,.8),0 0 50px rgba(255,40,90,.7);
+  animation:universeBeat 2.2s infinite;
+}
+
+.line2{
+  font-family:"Great Vibes",cursive;
+  font-size:46px;
+  color:white;
+  text-shadow:0 0 18px pink;
+}
+
+/* FLOAT HEART */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:22px;
+  animation:floatUp 6s linear forwards;
+}
+@keyframes floatUp{
+  0%{transform:translateY(0);opacity:0;}
+  20%{opacity:1;}
+  100%{transform:translateY(-110vh);opacity:0;}
+}
+
+/* SHOOTING STAR */
+.shooting-star{
+  position:fixed;
+  width:120px;
+  height:2px;
+  background:linear-gradient(90deg,white,transparent);
+  transform:rotate(-25deg);
+  animation:shoot 1.5s linear forwards;
+}
+@keyframes shoot{
+  from{transform:translateX(0) translateY(0) rotate(-25deg);opacity:1;}
+  to{transform:translateX(-300px) translateY(200px) rotate(-25deg);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- COUNTDOWN -->
+<div id="countdownScreen">
+  <div class="countGlow"></div>
+  <div class="countNumber" id="countNumber">5</div>
+  <div class="countText">A special moment is coming…</div>
+</div>
+
+<!-- PROPOSAL -->
+<div id="proposal">
+  <div class="question">💖 Will you be my Valentine? 💖</div>
+  <div class="buttons">
+    <button id="yesBtn">Yes ❤️</button>
+    <button id="noBtn">No 💔</button>
+  </div>
+  <div id="noText"></div>
+</div>
+
+<!-- YES SCENE -->
+<div id="yesScene">
+  <div class="infinity-aura"></div>
+  <div class="bigHeart">❤️</div>
+  <div class="valentine-text">
+    <div class="line1">Happy Valentine’s Day</div>
+    <div class="line2">Delulu ❤️</div>
+  </div>
+</div>
+
+<audio id="yesSound" src="yes.mp3"></audio>
+<audio id="noSound" src="heartbreak.mp3"></audio>
+<audio id="beatSound" src="heartbeat.mp3"></audio>
+<audio id="riseSound" src="rise.mp3"></audio>
+
+<script>
+const proposal=document.getElementById("proposal");
+const yesScene=document.getElementById("yesScene");
+const noText=document.getElementById("noText");
+
+const yesSound=document.getElementById("yesSound");
+const noSound=document.getElementById("noSound");
+const beat=document.getElementById("beatSound");
+const rise=document.getElementById("riseSound");
+
+/* COUNTDOWN */
+let count=5;
+const countEl=document.getElementById("countNumber");
+const countdown=document.getElementById("countdownScreen");
+
+const timer=setInterval(()=>{
+  beat.currentTime=0;
+  beat.play().catch(()=>{});
+
+  count--;
+  countEl.textContent=count;
+
+  if(count===0){
+    clearInterval(timer);
+
+    const flash=document.createElement("div");
+    flash.className="flash";
+    document.body.appendChild(flash);
+
+    rise.currentTime=0;
+    rise.play().catch(()=>{});
+
+    setTimeout(()=>{
+      countdown.style.display="none";
+      proposal.style.display="block";
+    },500);
+  }
+},1000);
+
+/* NO BUTTON */
+const noMsgs=[
+"అయ్యో 😢 నో ఎందుకు?",
+"ప్లీజ్ నో చెప్పకు 💔",
+"నో అంటే నాకు బాధగా ఉంటుంది 🥺",
+"నో వెనక పడకు… పాపం Yes feel అవుతుంది ❤️",
+"ఒక్కసారి Yes అని చెప్పు చూడూ 😍"
+];
+let i=0;
+
+document.getElementById("noBtn").onclick=()=>{
+  noText.innerText=noMsgs[i%noMsgs.length];
+  i++;
+  noSound.currentTime=0;
+  noSound.play().catch(()=>{});
+};
+
+/* YES BUTTON */
+document.getElementById("yesBtn").onclick=()=>{
+  proposal.style.display="none";
+  yesScene.style.display="flex";
+  yesSound.currentTime=0;
+  yesSound.play().catch(()=>{});
+};
+
+/* FLOAT HEARTS */
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="❤️";
+  h.style.left=Math.random()*100+"vw";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+},600);
+
+/* SHOOTING STAR */
+setInterval(()=>{
+  const s=document.createElement("div");
+  s.className="shooting-star";
+  s.style.top=Math.random()*40+"vh";
+  s.style.left=Math.random()*100+"vw";
+  document.body.appendChild(s);
+  setTimeout(()=>s.remove(),1500);
+},3000);
+</script>
+
+</body>
+</html>
